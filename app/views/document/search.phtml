@@ -1,0 +1,64 @@
+<?php use Phalcon\Tag; ?>
+
+<?php echo $this->getContent(); ?>
+
+<table width="100%">
+    <tr>
+        <td align="left">
+            <?php echo $this->tag->linkTo(array("document/index", "Go Back")); ?>
+        </td>
+        <td align="right">
+            <?php echo $this->tag->linkTo(array("document/new", "Create ")); ?>
+        </td>
+    </tr>
+</table>
+
+<table class="browse" align="center">
+    <thead>
+        <tr>
+            <th>Iddocument</th>
+            <th>Iduser</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Taken Of Date</th>
+            <th>Given Of Date</th>
+            <th>Created Of By</th>
+            <th>Updated Of By</th>
+            <th>Created Of On</th>
+            <th>Updated Of On</th>
+         </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($page->items as $document) { ?>
+        <tr>
+            <td><?php echo $document->iddocument ?></td>
+            <td><?php echo $document->iduser ?></td>
+            <td><?php echo $document->title ?></td>
+            <td><?php echo $document->description ?></td>
+            <td><?php echo $document->taken_date ?></td>
+            <td><?php echo $document->given_date ?></td>
+            <td><?php echo $document->created_by ?></td>
+            <td><?php echo $document->updated_by ?></td>
+            <td><?php echo $document->created_on ?></td>
+            <td><?php echo $document->updated_on ?></td>
+            <td><?php echo $this->tag->linkTo(array("document/edit/" . $document->iddocument, "Edit")); ?></td>
+            <td><?php echo $this->tag->linkTo(array("document/delete/" . $document->iddocument, "Delete")); ?></td>
+        </tr>
+    <?php } ?>
+    </tbody>
+    <tbody>
+        <tr>
+            <td colspan="2" align="right">
+                <table align="center">
+                    <tr>
+                        <td><?php echo $this->tag->linkTo("document/search", "First") ?></td>
+                        <td><?php echo $this->tag->linkTo("document/search?page=" . $page->before, "Previous") ?></td>
+                        <td><?php echo $this->tag->linkTo("document/search?page=" . $page->next, "Next") ?></td>
+                        <td><?php echo $this->tag->linkTo("document/search?page=" . $page->last, "Last") ?></td>
+                        <td><?php echo $page->current, "/", $page->total_pages ?></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>

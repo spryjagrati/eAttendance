@@ -1,0 +1,57 @@
+<?php $this->assets->outputCss('headercss') ?>
+<?php $this->assets->outputCss('mainpagecss') ?>
+<div class="container-fluid"> 
+  <div class="row">
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <div class="col-md-4">
+        <?php echo Phalcon\Tag::linkTo(array("user/index", "Go Back", "class"=>'btn btn-primary btn-large btn-success')); ?>               
+      </div>
+      <div class="col-md-4">
+        <?php $this->flash->output(); ?> 
+        <?php echo $this->tag->form("user/create") ?>
+        <div align="center">
+            <h1>Create user</h1>
+        </div>
+        <form>
+            <div class="form-group">
+            <label for="user[email]" >Email*</label>
+            <?php echo $this->tag->textField(array("user[email]", "size" => 25 , 
+            "required" => 'required',"class"=>"form-control", "placeholder"=>"Email"))?>
+            </div>
+            <div class="form-group">
+            <label for="user[username]">User Name*</label>
+            <?php echo $this->tag->textField(array("user[username]","size" =>25,"required" => 'required',"class"=>"form-control", "placeholder"=>"User Name")) ?>
+            </div>
+            <div class="form-group">
+            <label for="user[password]">Password*</label>
+            <?php echo $this->tag->passwordField(array("user[password]", "size" => 25 ,"required" => 'required',"class"=>"form-control", "placeholder"=>"Password")) ?>
+            </div>                  
+            <div class="form-group">
+              <label for="user[type]">Type*</label>
+              <?php echo $this->tag->selectStatic(array("user[type]","class"=>"form-control"),array(                          
+                            "1" => "Admin",
+                            "2" => "Manager",
+                            "3" => "Employee"));
+              ?>
+            </div>
+            <div class="form-group" >
+              <label for="status" >Status*</label>            
+              <label class="checkbox-inline">
+                <?php echo phalcon\Tag::radioField(array("user[status]", "value" => "1")); ?>   Active
+              </label>
+              <label class="checkbox-inline">
+                <?php echo phalcon\Tag::radioField(array("user[status]" ,"value" => "0")); ?> InActive
+              </label>
+            </div>
+            <div>
+              &nbsp;
+            </div>
+              <?php echo $this->view->partial('profile/new'); ?>              
+            </form>
+          
+      </div>
+    </div>
+  </div>
+</div>
+<?php //$this->assets->outputJs('footerjs') ?>
+<?php //$this->assets->outputJs('mainpagejs') ?>

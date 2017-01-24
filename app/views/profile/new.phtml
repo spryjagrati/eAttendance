@@ -1,0 +1,133 @@
+<?php $this->assets->outputCss('headercss') ?>
+<?php $this->assets->outputCss('mainpagecss') ?>
+<?php $this->assets->outputCss('datepickercss') ?>
+
+<div align="center">
+  <h1> User Profile</h1>
+</div>
+<form>
+  <div class="form-group">               
+  <?php echo phalcon\Tag::hiddenField(array("profile[iduser]","class"=>"form-control" )); ?>
+  </div>
+  <div class="form-group">
+  <label for="profile[first_name]" >First Name*</label>
+  <?php echo $this->tag->textField(array("profile[first_name]", "size" => 25 ,"required"=> 'required',"class"=>"form-control", "placeholder"=>"First Name")) ?>
+  </div>
+  <div class="form-group">
+  <label for="profile[last_name]">Last Name*</label>
+  <?php echo $this->tag->textField(array("profile[last_name]", "size" => 25 , 
+    "required" => 'required',"class"=>"form-control", "placeholder"=>"Last Name")) ?>
+  </div>
+  <div class="form-group">
+  <label for="profile[designation]">Designation*</label>
+  <?php echo $this->tag->textField(array("profile[designation]", "size" => 25 , 
+    "required" => 'required',"class"=>"form-control", "placeholder"=>"Designation")) ?>
+   </div>
+  <div class="form-group">
+  <label for="profile[dob]">DOB*</label>
+  <?php echo $this->tag->textField(array("profile[dob]", "size" =>25,"required" =>
+  'required',"class"=>"form-control", "placeholder"=>"DOB","data-format"=>"yyyy/mm/dd", "id"=>"from")) ?>
+  </div>
+  <div class="form-group">
+  <label for="profile[phone]">Phone*</label>
+  <?php echo $this->tag->textField(array("profile[phone]", "size" => 25 , 
+  "required" => 'required',"class"=>"form-control", "placeholder"=>"Phone")) ?>
+  </div>
+  <div class="form-group">
+  <label for="profile[alt_phone]">Alternate Phone</label>
+  <?php echo $this->tag->textField(array("profile[alt_phone]", "size" => 25 , 
+  "class"=>"form-control", "placeholder"=>"Alternate Phone")) ?>
+  </div>
+  <div class="form-group">
+  <label for="profile[landline]">Landline Phone</label>
+  <?php echo $this->tag->textField(array("profile[landline]", "size" => 25 , 
+    "class"=>"form-control", "placeholder"=>"Landline Number")) ?>
+  </div>
+  <div class="form-group">
+  <label for="profile[email]" >Email*</label>
+  <?php echo $this->tag->textField(array("profile[email]", "size" => 25 , 
+  "required" => 'required',"class"=>"form-control", "placeholder"=>"Email")) ?>
+  </div>
+  <div class="form-group">
+  <label for="profile[alt_email]" >Alternate Email</label>
+  <?php echo $this->tag->textField(array("profile[alt_email]", "size" => 25 , 
+    "class"=>"form-control", "placeholder"=>"Alternate  Email")) ?>
+  </div>
+  <div class="form-group">
+  <label for="profile[current_address]">Current Address*</label>
+  <?php echo $this->tag->textArea(array("profile[current_address]","cols" => 25,
+  "rows"=>4,"required" =>'required',"class"=>"form-control","placeholder"=>"Current Address"))?>
+  </div>
+ <div class="form-group">
+  <label for="profile[permanent_address]">Parmanent Address*</label>
+  <?php echo $this->tag->textArea(array("profile[permanent_address]", "cols" => 25,
+  "rows" => 4,"required" => 'required',"class"=>"form-control", "placeholder"=>"Parmanent Address")) ?>
+  </div>
+  <div class="form-group">
+  <label for="profile[communication_address]">Communication Address*</label>
+  <?php echo $this->tag->textArea(array("profile[communication_address]", "cols" => 25,
+    "rows" => 4,"required" => 'required',"class"=>"form-control", "placeholder"=>"Communication Address")) ?>
+  </div>
+  <div class="form-group">
+  <label for="profile[landlord_detail]">LandLord Detail</label>
+  <?php echo $this->tag->textField(array("profile[landlord_detail]", "size" => 25 , 
+  "class"=>"form-control", "placeholder"=>"LandLord Detail")) ?>
+  </div>  
+  <div class="form-group">
+  <label for="profile[father_name]">Father Name*</label>
+  <?php echo $this->tag->textField(array("profile[father_name]", "size" => 25 , 
+  "class"=>"form-control", "required" => 'required',"placeholder"=>"Father Name")) ?>
+  </div>
+  <div class="form-group">
+  <label for="profile[father_phone]">Father Phone*</label>
+  <?php echo $this->tag->textField(array("profile[father_phone]","size" =>25, 
+  "class"=>"form-control","required"=>'required',"placeholder"=>"Father Phone Number"))
+  ?>
+  </div>
+  <div class="form-group">
+  <label for="profile[mother_name]">Mother Name*</label>
+  <?php echo $this->tag->textField(array("profile[mother_name]", "size" => 25 , 
+  "class"=>"form-control","required" => 'required', "placeholder"=>"Mother Name")) ?>
+  </div>  
+  <div class="form-group">
+  <label for="profile[mother_phone]">Mother Phone</label>
+  <?php echo $this->tag->textField(array("profile[mother_phone]", "size" => 25 , 
+  "class"=>"form-control","placeholder"=>"Mother Phone Number")) ?>
+  </div>
+  <div class="form-group">
+  <label for="profile[pan]" >Pan</label>
+  <?php echo $this->tag->textField(array("profile[pan]", "size" => 25 , 
+   "class"=>"form-control", "placeholder"=>"Pan")) ?>
+  </div>
+  <div class="form-group">
+  <label for="profile[bank]" >Bank Name*</label>
+  <?php echo $this->tag->textField(array("profile[bank]", "size" => 25 , 
+  "required" => 'required', "class"=>"form-control", "placeholder"=>"Bank")) ?>
+  </div>
+  <div class="form-group">
+  <label for="profile[branch]" >Branch*</label>
+  <?php echo $this->tag->textField(array("profile[branch]", "size" => 25 , 
+  "required" => 'required', "class"=>"form-control", "placeholder"=>"Branch Name")) ?>
+  </div>
+  <div class="form-group">
+  <label for="profile[account_number]" >Account Number*</label>
+  <?php echo $this->tag->textField(array("profile[account_number]", "size" => 25 , 
+  "required" => 'required', "class"=>"form-control", "placeholder"=>"Account Number"))?>
+  </div>
+  <div class="form-group">
+  <label for="profile[micr_code]" >MICR Code*</label>
+  <?php echo $this->tag->textField(array("profile[micr_code]", "size" => 25 , 
+  "required" => 'required', "class"=>"form-control", "placeholder"=>"MICR Code")) ?>
+  </div>
+  <div class="form-group">
+  <label for="profile[ifsc]" >IFSC Code*</label>
+  <?php echo $this->tag->textField(array("profile[ifsc]", "size" => 25 , 
+  "required" => 'required', "class"=>"form-control", "placeholder"=>"IFSC Code")) ?>
+  </div> 
+  <div id="submit_btn">
+    <button type="submit" class="btn btn-default">Submit</button>
+  </div>             
+</form>
+<?php $this->assets->outputJs('footerjs') ?>
+<?php $this->assets->outputJs('mainpagejs') ?>
+<?php $this->assets->outputJs('datepickerjs') ?>

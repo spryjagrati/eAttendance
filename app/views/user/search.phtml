@@ -1,0 +1,66 @@
+<?php use Phalcon\Tag; ?>
+
+<?php echo $this->getContent(); ?>
+
+<table width="100%">
+    <tr>
+        <td align="left">
+            <?php echo $this->tag->linkTo(array("user/index", "Go Back")); ?>
+        </td>
+        <td align="right">
+            <?php echo $this->tag->linkTo(array("user/new", "Create ")); ?>
+        </td>
+    </tr>
+</table>
+
+<table class="browse" align="center">
+    <thead>
+        <tr>
+            <th>Iduser</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Password Of Reset Of Digest</th>
+            <th>Created Of By</th>
+            <th>Updated Of By</th>
+            <th>Created Of On</th>
+            <th>Updated Of On</th>
+         </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($page->items as $user) { ?>
+        <tr>
+            <td><?php echo $user->iduser ?></td>
+            <td><?php echo $user->email ?></td>
+            <td><?php echo $user->username ?></td>
+            <td><?php echo $user->password ?></td>
+            <td><?php echo $user->type ?></td>
+            <td><?php echo $user->status ?></td>
+            <td><?php echo $user->password_reset_digest ?></td>
+            <td><?php echo $user->created_by ?></td>
+            <td><?php echo $user->updated_by ?></td>
+            <td><?php echo $user->created_on ?></td>
+            <td><?php echo $user->updated_on ?></td>
+            <td><?php echo $this->tag->linkTo(array("user/edit/" . $user->iduser, "Edit")); ?></td>
+            <td><?php echo $this->tag->linkTo(array("user/delete/" . $user->iduser, "Delete")); ?></td>
+        </tr>
+    <?php } ?>
+    </tbody>
+    <tbody>
+        <tr>
+            <td colspan="2" align="right">
+                <table align="center">
+                    <tr>
+                        <td><?php echo $this->tag->linkTo("user/search", "First") ?></td>
+                        <td><?php echo $this->tag->linkTo("user/search?page=" . $page->before, "Previous") ?></td>
+                        <td><?php echo $this->tag->linkTo("user/search?page=" . $page->next, "Next") ?></td>
+                        <td><?php echo $this->tag->linkTo("user/search?page=" . $page->last, "Last") ?></td>
+                        <td><?php echo $page->current, "/", $page->total_pages ?></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,102 @@
+
+<?php echo $this->getContent() ?>
+
+<div align="right">
+    <?php echo $this->tag->linkTo(array("attendance/new", "Create attendance")) ?>
+</div>
+
+<?php echo $this->tag->form(array("attendance/search", "autocomplete" => "off")) ?>
+
+<div align="center">
+    <h1>Search attendance</h1>
+</div>
+
+<table>
+    <tr>
+        <td align="right">
+            <label for="idattendance">Idattendance</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("idattendance", "type" => "number")) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="iduser">Iduser</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("iduser", "type" => "number")) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="cdate">Cdate</label>
+        </td>
+        <td align="left">
+                <?php echo $this->tag->textField(array("cdate", "type" => "date")) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="in_time">In Of Time</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("in_time", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="out_time">Out Of Time</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("out_time", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="created_on">Created Of On</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("created_on", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="updated_on">Updated Of On</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("updated_on", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="type">Type</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("type", "type" => "number")) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="remark">Remark</label>
+        </td>
+        <td align="left">
+                <?php echo $this->tag->textArea(array("remark", "cols" => 30, "rows" => 4)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="idapplication">Idapplication</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("idapplication", "type" => "number")) ?>
+        </td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td><?php echo $this->tag->submitButton("Search") ?></td>
+    </tr>
+</table>
+
+</form>

@@ -1,0 +1,48 @@
+<div class="col-md-12">
+            <?php if(!empty($education[0])){ ?>
+            <div>
+            <table class="browse" align="center" width="100%" border="1px solid black">
+              <thead>
+                <tr>
+                <td align="center"><b>Title</b></td>
+                <td align="center"><b>Description</b></td>
+                <td align="center"><b>From Date</b></td>
+                <td align="center"><b>To Date</b></td>
+                <td align="center"><b>College</b></td>
+                <td align="center"><b>Grade</b></td>
+                <td align="center"><b>Stream</b></td>
+                </tr>
+              </thead>
+                <tbody>
+                <?php foreach($education as $edu){ ?>
+                <div>
+                <tr>                             
+                <td align="center">
+                  <?php echo $edu->title ?>
+                </td>
+                <td align="center">
+                  <?php echo $edu->description ?>
+                </td>
+                <td align="center">
+                  <?php echo $edu->from_date ?>
+                </td>
+                <td align="center">
+                  <?php echo $edu->to_date ?>
+                </td>
+                <td align="center">
+                  <?php echo $edu->college ?>
+                </td>
+                <td align="center">
+                  <?php echo $edu->grade ?>
+                </td>
+                <td align="center">
+                  <?php echo $edu->stream ?>
+                </td>
+                </tr>
+              </div>        
+              <?php } ?>
+            </tbody>
+          </table>
+          </div> 
+        <?php } ?>
+        </div>  

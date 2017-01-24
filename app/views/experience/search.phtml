@@ -1,0 +1,70 @@
+<?php use Phalcon\Tag; ?>
+
+<?php echo $this->getContent(); ?>
+
+<table width="100%">
+    <tr>
+        <td align="left">
+            <?php echo $this->tag->linkTo(array("experience/index", "Go Back")); ?>
+        </td>
+        <td align="right">
+            <?php echo $this->tag->linkTo(array("experience/new", "Create ")); ?>
+        </td>
+    </tr>
+</table>
+
+<table class="browse" align="center">
+    <thead>
+        <tr>
+            <th>Idexperience</th>
+            <th>Iduser</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>From Of Date</th>
+            <th>To Of Date</th>
+            <th>Company</th>
+            <th>Company Of Address</th>
+            <th>Company Of Ctc</th>
+            <th>Created Of On</th>
+            <th>Updated Of On</th>
+            <th>Created Of By</th>
+            <th>Updated Of By</th>
+         </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($page->items as $experience) { ?>
+        <tr>
+            <td><?php echo $experience->idexperience ?></td>
+            <td><?php echo $experience->iduser ?></td>
+            <td><?php echo $experience->title ?></td>
+            <td><?php echo $experience->description ?></td>
+            <td><?php echo $experience->from_date ?></td>
+            <td><?php echo $experience->to_date ?></td>
+            <td><?php echo $experience->company ?></td>
+            <td><?php echo $experience->company_address ?></td>
+            <td><?php echo $experience->company_ctc ?></td>
+            <td><?php echo $experience->created_on ?></td>
+            <td><?php echo $experience->updated_on ?></td>
+            <td><?php echo $experience->created_by ?></td>
+            <td><?php echo $experience->updated_by ?></td>
+            <td><?php echo $this->tag->linkTo(array("experience/edit/" . $experience->idexperience, "Edit")); ?></td>
+            <td><?php echo $this->tag->linkTo(array("experience/delete/" . $experience->idexperience, "Delete")); ?></td>
+        </tr>
+    <?php } ?>
+    </tbody>
+    <tbody>
+        <tr>
+            <td colspan="2" align="right">
+                <table align="center">
+                    <tr>
+                        <td><?php echo $this->tag->linkTo("experience/search", "First") ?></td>
+                        <td><?php echo $this->tag->linkTo("experience/search?page=" . $page->before, "Previous") ?></td>
+                        <td><?php echo $this->tag->linkTo("experience/search?page=" . $page->next, "Next") ?></td>
+                        <td><?php echo $this->tag->linkTo("experience/search?page=" . $page->last, "Last") ?></td>
+                        <td><?php echo $page->current, "/", $page->total_pages ?></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>

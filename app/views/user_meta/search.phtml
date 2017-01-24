@@ -1,0 +1,102 @@
+<?php use Phalcon\Tag; ?>
+
+<?php echo $this->getContent(); ?>
+
+<table width="100%">
+    <tr>
+        <td align="left">
+            <?php echo $this->tag->linkTo(array("user_meta/index", "Go Back")); ?>
+        </td>
+        <td align="right">
+            <?php echo $this->tag->linkTo(array("user_meta/new", "Create ")); ?>
+        </td>
+    </tr>
+</table>
+
+<table class="browse" align="center">
+    <thead>
+        <tr>
+            <th>Iduser Of Meta</th>
+            <th>Iduser</th>
+            <th>First Of Name</th>
+            <th>Last Of Name</th>
+            <th>Designation</th>
+            <th>Dob</th>
+            <th>Phone</th>
+            <th>Alt Of Phone</th>
+            <th>Landline</th>
+            <th>Email</th>
+            <th>Alt Of Email</th>
+            <th>Current Of Address</th>
+            <th>Permanent Of Address</th>
+            <th>Communication Of Address</th>
+            <th>Landlord Of Detail</th>
+            <th>Father Of Name</th>
+            <th>Father Of Phone</th>
+            <th>Mother Of Name</th>
+            <th>Mother Of Phone</th>
+            <th>Pan</th>
+            <th>Bank</th>
+            <th>Branch</th>
+            <th>Account Of Number</th>
+            <th>Micr Of Code</th>
+            <th>Ifsc</th>
+            <th>Created Of By</th>
+            <th>Updated Of By</th>
+            <th>Created Of On</th>
+            <th>Updated Of On</th>
+         </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($page->items as $user_meta) { ?>
+        <tr>
+            <td><?php echo $user_meta->iduser_meta ?></td>
+            <td><?php echo $user_meta->iduser ?></td>
+            <td><?php echo $user_meta->first_name ?></td>
+            <td><?php echo $user_meta->last_name ?></td>
+            <td><?php echo $user_meta->designation ?></td>
+            <td><?php echo $user_meta->dob ?></td>
+            <td><?php echo $user_meta->phone ?></td>
+            <td><?php echo $user_meta->alt_phone ?></td>
+            <td><?php echo $user_meta->landline ?></td>
+            <td><?php echo $user_meta->email ?></td>
+            <td><?php echo $user_meta->alt_email ?></td>
+            <td><?php echo $user_meta->current_address ?></td>
+            <td><?php echo $user_meta->permanent_address ?></td>
+            <td><?php echo $user_meta->communication_address ?></td>
+            <td><?php echo $user_meta->landlord_detail ?></td>
+            <td><?php echo $user_meta->father_name ?></td>
+            <td><?php echo $user_meta->father_phone ?></td>
+            <td><?php echo $user_meta->mother_name ?></td>
+            <td><?php echo $user_meta->mother_phone ?></td>
+            <td><?php echo $user_meta->pan ?></td>
+            <td><?php echo $user_meta->bank ?></td>
+            <td><?php echo $user_meta->branch ?></td>
+            <td><?php echo $user_meta->account_number ?></td>
+            <td><?php echo $user_meta->micr_code ?></td>
+            <td><?php echo $user_meta->ifsc ?></td>
+            <td><?php echo $user_meta->created_by ?></td>
+            <td><?php echo $user_meta->updated_by ?></td>
+            <td><?php echo $user_meta->created_on ?></td>
+            <td><?php echo $user_meta->updated_on ?></td>
+            <td><?php echo $this->tag->linkTo(array("user_meta/edit/" . $user_meta->iduser_meta, "Edit")); ?></td>
+            <td><?php echo $this->tag->linkTo(array("user_meta/delete/" . $user_meta->iduser_meta, "Delete")); ?></td>
+        </tr>
+    <?php } ?>
+    </tbody>
+    <tbody>
+        <tr>
+            <td colspan="2" align="right">
+                <table align="center">
+                    <tr>
+                        <td><?php echo $this->tag->linkTo("user_meta/search", "First") ?></td>
+                        <td><?php echo $this->tag->linkTo("user_meta/search?page=" . $page->before, "Previous") ?></td>
+                        <td><?php echo $this->tag->linkTo("user_meta/search?page=" . $page->next, "Next") ?></td>
+                        <td><?php echo $this->tag->linkTo("user_meta/search?page=" . $page->last, "Last") ?></td>
+                        <td><?php echo $page->current, "/", $page->total_pages ?></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>

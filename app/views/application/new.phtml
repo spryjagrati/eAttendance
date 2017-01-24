@@ -1,0 +1,149 @@
+<?php $this->assets->outputCss('headercss') ?>
+<?php $this->assets->outputCss('mainpagecss') ?>
+<?php $this->assets->outputCss('datepickercss') ?>
+
+<div class="container-fluid">
+  <div class="row">       
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <div class="col-md-4">
+      <?php echo Phalcon\Tag::linkTo(array("application/index", "Go Back", "class"=>
+      'btn btn-primary btn-large btn-success')); ?>              
+      </div>
+      <div class="col-md-4">
+      <?php echo $this->getContent(); ?>
+      <?php echo $this->tag->form("application/create") ?>
+      <div align="center">
+          <h1>Create application</h1>
+      </div>
+      <form>
+        <?php if($type == 1 || $type == 2 ){ ?>
+          <div class="form-group">
+          <label for="iduser"> ID User</label>                                
+          <select name="iduser" class="form-control" id="checkuser">
+          <?php foreach($user as $users) { ?>
+          <option value="<?php echo $users->iduser; ?>">
+          <?php echo $users->iduser.'-'.$users->username; ?>
+          </option> 
+          <?php } ?>
+          </select>
+          </div>            
+        <?php } else{ ?>
+          <div class="form-group">
+          <?php echo phalcon\Tag::hiddenField(array("iduser","class"=>"form-control")) ?>
+          </div>
+        <?php } ?>
+          <div class="form-group">
+          <label for="from_date">From Date*</label>
+          <?php echo $this->tag->textField(array("from_date", "size" => 25 , 
+          "required" => 'required',"class"=>"form-control", "placeholder"=>"From Date","data-format"=>"yyyy/mm/dd", "id"=>"from")) ?>
+          </div>
+          <div class="form-group">
+          <label for="to_date">To Date*</label>
+          <?php echo $this->tag->textField(array("to_date", "size" => 25 , 
+          "required" => 'required',"class"=>"form-control", "placeholder"=>"To Date","data-format"=>"yyyy/mm/dd","id"=>"to")) ?>
+          </div> 
+          <div class="form-group">
+          <label for="type">Type*</label>
+          <?php echo $this->tag->selectStatic(array("type","class"=>"form-control"), array(
+                "0" => "Select Type ",
+                "2" => "PL",
+                "3" => "CL",
+                "4" => "SL"
+              ));
+          ?>
+          </div>
+        <?php if($type >= 3 ){ ?> 
+          <p class="help-block" id="pl"> 
+            PL = <?php echo $left_pl ?>
+            CL = <?php echo $left_cl ?>
+            SL = <?php echo $left_sl ?>
+          </p>
+        <?php }else{ ?>
+            <p class="help-block" id="left"> </p>
+        <?php } ?>
+          <div class="form-group">
+          <label for="title" >Title*</label>
+          <?php echo $this->tag->textField(array("title", "size" => 25 , 
+          "required" => 'required',"class"=>"form-control", "placeholder"=>"Title")) ?>
+          </div>
+          <div class="form-group">
+          <label for="description"> Description</label>
+          <?php echo $this->tag->textArea(array("description","cols" => 25, "rows" => 4,
+          "class"=>"form-control","placeholder"=>"Description "))?>
+          </div>            
+        <?php if($type == 1 || $type == 2 ){ ?>
+          <div class="form-group">
+          <label for="status">Status</label>
+          <?php echo $this->tag->selectStatic(array("status","class"=>"form-control"), array(
+                  "0" => "Select Status ",
+                  "1" => "Pending",
+                  "2" => "Approved",
+                  "3" => "Rejected"
+              ));
+          ?>
+          </div>
+        <?php } else {?>
+          <div class="form-group" id="hidden_status">
+          <?php echo phalcon\Tag::hiddenField(array("status","class"=>"form-control", "value"=>"1")) ?>
+          </div>
+        <?php } ?>          
+          <div id="submit_btn">
+          <input type="hidden" name="currentuser" value="<?php echo $id;?>" id="currentuser"/>  
+          <button type="submit" class="btn btn-default">Submit</button> 
+          </div>
+        </form>
+      </div>     
+    </div>
+  </div>
+</div>
+<?php $this->assets->outputJs('footerjs') ?>
+<?php $this->assets->outputJs('mainpagejs') ?>
+<?php $this->assets->outputJs('datepickerjs') ?>
+
+<script type="text/javascript">
+    // When the document is ready
+  jQuery(document).ready(function($) {
+    $('#from').datepicker({                     
+    format : "yyyy/mm/dd",
+    autoclose: true
+  })
+  .on('changeDate', function(selected){
+    startDate = new Date(selected.date.valueOf());
+    startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
+    $('#to').datepicker('setStartDate', startDate);
+  });                                              
+  $('#to').datepicker({                     
+    format : "yyyy/mm/dd",                        
+  }); 
+    $('select#checkuser').change(function(){
+     var val=$(this).val();
+     $.ajax({
+      type:"POST",
+      url:'typefetch',
+      data:{user:val},
+      success:function(response){                          
+        if(response == 'disable'){
+        $('select#status').val('1');
+        $('select#status').attr('readonly', true);
+        }
+        else{
+        $('select#status').val('0');
+        $('select#status').attr('readonly', false); 
+        }
+      }  
+     });     
+    }); 
+    $('select#checkuser').change(function(){
+      var val=$(this).val();
+      $.ajax({
+      type:"POST",
+      url:'leavetype',
+      data:{user:val},
+      dataType: "json",
+      success: function(response){
+      $('#left').text('PL ='+response.PL +',CL ='+response.CL+',SL ='+response.SL);
+      }
+     });
+  });              
+});
+</script>  

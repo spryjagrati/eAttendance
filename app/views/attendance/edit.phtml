@@ -1,0 +1,87 @@
+<?php $this->assets->outputCss('headercss') ?>
+<?php $this->assets->outputCss('mainpagecss') ?>
+<?php $this->assets->outputCss('datepickercss') ?>
+<?php $this->assets->outputCss('clockpickercss') ?>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <div class="col-md-4">    
+      <?php echo Phalcon\Tag::linkTo(array("attendance/index", "Back", "class"=>'btn btn-primary btn-large btn-success')); ?>
+      </div>
+      <div class="col-md-4">  
+      <?php $this->flash->output(); ?>
+      <?php echo $this->tag->form("attendance/save") ?>
+        <div align="center">
+            <h1>Edit attendance</h1>
+        </div>
+        <form>
+        <div class="form-group">                     
+        <?php echo phalcon\Tag::hiddenField(array("idattendance","class"=>"form-control" )); ?>
+        </div>
+        <div class="form-group">                
+        <?php echo phalcon\Tag::hiddenField(array("iduser","class"=>"form-control" )); ?>
+        </div>
+        <div class="form-group">
+        <label for="cdate" >Date*</label>
+        <?php echo $this->tag->textField(array("cdate", "size" => 25 , 
+        "required" => 'required',"class"=>"form-control", "placeholder"=>"Cdate","id"=>"from")) ?>
+        </div>
+        <div class="form-group">
+        <label for="in_time" >In Time*</label>
+        <?php echo $this->tag->textField(array("in_time", "size" => 25,"class"=>"form-control", "placeholder"=>"In Time","id" => "intime","data-autoclose"=>"true")) ?>
+        </div>
+        <div class="form-group">
+        <label for="out_time" >Out time*</label>
+        <?php echo $this->tag->textField(array("out_time", "size" => 25 ,"class"=>"form-control", "placeholder"=>"Out Time","id" => "outtime","data-autoclose"=>"true")) ?>
+        </div>
+        <div class="form-group">
+        <label for="type">Type*</label>
+        <?php echo $this->tag->selectStatic(array("type","class"=>"form-control"), 
+           array(
+                "-1" => "Unmarked",
+                "0" => "Absent",
+                "1" => "Present",
+                "2" => "PL",
+                "3" => "CL",                                       
+                "4" => "SL",
+                "5" => "Halfday",
+                "6" => "Sunday",
+                "7" => "Holiday",
+                "8" => "2nd Saturday",
+                "9" => "4th Saturday",
+            ));
+        ?>
+        </div>
+        <div class="form-group">
+        <label for="remark"> Remark</label>
+        <?php echo $this->tag->textArea(array("remark", "cols" => 25, "rows" => 4,"class"=>"form-control", "placeholder"=>"Remark ")) ?>
+        </div>
+       <!--  <div class="form-group">
+        <label for="idapplication" >ID Application</label>
+        <?php echo $this->tag->textField(array("idapplication", "size" => 25 ,"class"=>"form-control", "placeholder"=>"ID Application")) ?>
+        </div> -->
+        <div id="submit_btn">
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+        </form>
+        </div>
+      </div>
+  </div> 
+</div>
+
+<?php $this->assets->outputJs('footerjs') ?>
+<?php $this->assets->outputJs('mainpagejs') ?>
+<?php $this->assets->outputJs('datepickerjs') ?>
+<?php $this->assets->outputJs('clockpickerjs') ?>
+
+ <script type="text/javascript">
+    // When the document is ready
+  jQuery(document).ready(function($) {
+    $('#from').datepicker({
+        format: "yyyy/mm/dd"      
+    }); 
+    $('#intime').clockpicker();
+    $('#outtime').clockpicker();                 
+  });
+</script>  

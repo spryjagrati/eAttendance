@@ -1,0 +1,225 @@
+<?php $this->assets->outputCss('headercss') ?>
+<?php $this->assets->outputCss('mainpagecss') ?>
+<?php $this->assets->outputCss('datepickercss') ?>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <div class="row">
+        <div class="col-md-4">
+          <?php echo Phalcon\Tag::linkTo(array("user/index", "Go Back", "class"=>'btn btn-primary btn-large btn-success')) ?>  
+        </div>
+        <div class="col-md-4">
+          <?php $this->flash->output(); ?> 
+          <?php echo $this->tag->form("user/save") ?>
+          <div align="center">
+            <h1>Edit user</h1>
+          </div>
+          <form>
+            <div class="form-group">
+            <?php echo phalcon\Tag::hiddenField(array("user[iduser]","class"=>"form-control" )); ?>
+            <?php echo phalcon\Tag::hiddenField(array("profile[iduser_meta]","class"=>"form-control" )); ?>
+            </div>
+            <div class="form-group">
+            <label for="user[email]" >Email*</label>
+            <?php echo $this->tag->textField(array("user[email]", "size" => 25 , 
+            "required" => 'required',"class"=>"form-control", "placeholder"=>"Email" ,"readonly"=>"true"))?>
+            </div>
+            <div class="form-group">
+            <label for="user[username]">User Name*</label>
+            <?php echo $this->tag->textField(array("user[username]","size" =>25,"required" => 'required',"class"=>"form-control", "placeholder"=>"User Name")) ?>
+            </div>
+            <div class="form-group">
+            <label for="user[password]">Password*</label>
+            <?php echo $this->tag->passwordField(array("user[password]", "size" => 25 ,"required" => 'required',"class"=>"form-control", "placeholder"=>"Password")) ?>
+            </div>                  
+            <div class="form-group">
+              <label for="user[type]">Type*</label>
+              <?php echo $this->tag->selectStatic(array("user[type]","class"=>"form-control"),array(                          
+                            "1" => "Admin",
+                            "2" => "Manager",
+                            "3" => "Employee"));
+              ?>
+            </div>
+            <div class="form-group" >
+              <label for="user[status]">Status*</label>
+              <?php if($status == 1){ ?>
+                <label class="checkbox-inline">
+                <?php echo phalcon\Tag::radioField(array("user[status]", "value" => "1","checked" => "checked")); ?> Active
+                </label>
+                <label class="checkbox-inline">
+                <?php echo phalcon\Tag::radioField(array("user[status]" ,"value" => "0")); ?> InActive
+                </label>
+              <?php } else{ ?>
+                <label class="checkbox-inline">
+                <?php echo phalcon\Tag::radioField(array("user[status]", "value" => "1")); ?>   Active
+                </label>
+                <label class="checkbox-inline">
+                <?php echo phalcon\Tag::radioField(array("user[status]" ,"value" => "0","checked" => "checked")); ?> InActive
+                </label>
+                <?php } ?>
+              </div>
+                <div>
+                  &nbsp;
+                </div>
+                <?php echo $this->view->partial('profile/new'); ?>              
+            </form>
+          </div>
+        </div>   
+        <p>
+        </p>
+
+        <!--  if have Experience show data -->
+        <div class="row" id="have_exp">
+           <?php echo $this->view->partial('user/haveExp'); ?> 
+        </div>
+        <p></p>
+        <!-- add button to add Experience -->
+        <div class="row">
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4" id="right_btn">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addExperience" data-whatever="@fat">Add More Experience</button>
+          </div>
+        </div> 
+        <p></p> 
+
+      <!--  if have education show data -->
+        <div class="row" id="have_edu">
+          <?php echo $this->view->partial('user/haveEdu'); ?>
+        </div>
+        <p></p>
+         <!-- add button to add Education -->
+        <div class="row">
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4" id="right_btn">
+             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addEducation" data-whatever="@fat">Add More Education</button>
+          </div>
+        </div>   
+        <p></p> 
+
+      <!--  bootstrap model pop up for add Experience -->
+      <?php echo $this->view->partial('user/addExp'); ?>
+
+      <!--  bootstrap model pop up for add Education -->
+      <?php echo $this->view->partial('user/addEdu'); ?>
+     
+
+  </div> 
+</div>
+<?php $this->assets->outputJs('validatejs') ?>
+<script type="text/javascript">
+  // When the document is ready
+  jQuery(document).ready(function($) { 
+        //date picker for education
+  $('#from1').datepicker({                     
+        format : "yyyy/mm/dd",
+        autoclose: true
+  })
+  .on('changeDate', function(selected){
+      startDate = new Date(selected.date.valueOf());
+      startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
+      $('#to1').datepicker('setStartDate', startDate);
+  });                                              
+  $('#to1').datepicker({                     
+         format : "yyyy/mm/dd",                        
+  });    
+         
+     //form validation rules for experience form
+  $('#formExperience').validate({    
+    rules: { 
+     title:{
+      maxlength : 30
+     },
+     description:{
+      maxlength : 65
+     },                  
+      company_ctc:{
+          digits:true
+      }                            
+    },
+    messages: {                               
+     company_ctc:{
+        digit:"Company CTC must be in digits"
+      }           
+    },
+
+    submitHandler: function(form) {
+      form.submit();
+    }
+  });
+  
+//form validation rules for Education form
+  $("#formEducation").validate({    
+    rules: { 
+     title:{
+      maxlength : 30
+     },
+     description:{
+      maxlength : 65
+     },                  
+      grade:{
+          digits:true
+      }                            
+    },
+    messages: {                               
+     grade:{
+        digit:"grade must be in digits"
+      }           
+    },
+
+    submitHandler: function(form) {
+      form.submit();
+    }
+  });
+
+  //date picker for experience
+  $('#fromcheck').datepicker({                     
+        format : "yyyy/mm/dd",
+        autoclose: true
+  })
+  .on('changeDate', function(selected){
+      startDate = new Date(selected.date.valueOf());
+      startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
+      $('#to').datepicker('setStartDate', startDate);
+  });                                              
+  $('#to').datepicker({                     
+         format : "yyyy/mm/dd",                        
+  });  
+     
+    //when the dom has loaded setup form validation rules
+    $('#addExperience').on('show.bs.modal', function (event) {
+      $.ajax({
+          url: 'experience/create',
+          data: $('#form').serialize(),
+          dataType: "Json"
+      }).success(function(response){
+          if(response == ''){
+            location.reload();
+          }else{
+            alert("data not inserted");
+          }
+      }); 
+    });
+
+    $('#addEducation').on('show.bs.modal', function (event) {
+      $.ajax({
+          url: 'education/create',
+          data: $('#form').serialize(),
+          dataType: "Json"
+      }).success(function(response){
+          if(response == ''){
+            location.reload();
+          }else{
+            alert("data not inserted");
+          }
+      }); 
+    }); 
+
+});
+</script>  
+

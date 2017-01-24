@@ -1,0 +1,10 @@
+div.timer {
+    border-bottom:1px #666666 solid;
+    width:170px;
+    height:31px;
+    line-height:30px;
+   /* font-size:36px;*/
+    font-family:serif;
+    text-align:center;
+    margin:5px;
+}

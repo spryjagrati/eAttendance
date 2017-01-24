@@ -1,0 +1,64 @@
+<?php use Phalcon\Tag; ?>
+
+<?php echo $this->getContent(); ?>
+
+<table width="100%">
+    <tr>
+        <td align="left">
+            <?php echo $this->tag->linkTo(array("application/index", "Go Back")); ?>
+        </td>
+        <td align="right">
+            <?php echo $this->tag->linkTo(array("application/new", "Create ")); ?>
+        </td>
+    </tr>
+</table>
+
+<table class="browse" align="center">
+    <thead>
+        <tr>
+            <th>Idapplication</th>
+            <th>Iduser</th>
+            <th>From Of Date</th>
+            <th>To Of Date</th>
+            <th>Type</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Created Of On</th>
+            <th>Updated Of On</th>
+         </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($page->items as $application) { ?>
+        <tr>
+            <td><?php echo $application->idapplication ?></td>
+            <td><?php echo $application->iduser ?></td>
+            <td><?php echo $application->from_date ?></td>
+            <td><?php echo $application->to_date ?></td>
+            <td><?php echo $application->type ?></td>
+            <td><?php echo $application->title ?></td>
+            <td><?php echo $application->description ?></td>
+            <td><?php echo $application->status ?></td>
+            <td><?php echo $application->created_on ?></td>
+            <td><?php echo $application->updated_on ?></td>
+            <td><?php echo $this->tag->linkTo(array("application/edit/" . $application->idapplication, "Edit")); ?></td>
+            <td><?php echo $this->tag->linkTo(array("application/delete/" . $application->idapplication, "Delete")); ?></td>
+        </tr>
+    <?php } ?>
+    </tbody>
+    <tbody>
+        <tr>
+            <td colspan="2" align="right">
+                <table align="center">
+                    <tr>
+                        <td><?php echo $this->tag->linkTo("application/search", "First") ?></td>
+                        <td><?php echo $this->tag->linkTo("application/search?page=" . $page->before, "Previous") ?></td>
+                        <td><?php echo $this->tag->linkTo("application/search?page=" . $page->next, "Next") ?></td>
+                        <td><?php echo $this->tag->linkTo("application/search?page=" . $page->last, "Last") ?></td>
+                        <td><?php echo $page->current, "/", $page->total_pages ?></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,91 @@
+.container{
+	margin-top:60px;
+}
+label{
+	text-align:left;
+	display: block;
+}
+
+#filter label{
+	display:inline-block;
+	text-align:center;
+}
+
+/*#top_button{
+	text-align:center;
+}*/
+/*.view-button{
+	text-align: right;
+	width:96%;
+}*/
+#right_btn{
+	text-align: right;
+}
+
+
+#submit_btn{
+text-align: center;
+}
+
+form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+
+
+#header_btn{
+	float:right;
+}
+
+.errorMessage,.noticeMessage{
+	color:red;
+}
+
+
+:required:focus {
+  border: 1px solid red;
+  outline: none;
+}
+
+/*input:required:focus {
+  border: 1px solid red;
+  outline: none;
+}*/
+.clockStyle{
+	font-weight: bold;
+	text-align: center;
+	color:#000000;
+	padding: 4px; 
+	margin: 0 auto;
+}
+#title-error{
+	color:red;
+}
+
+.error{
+	color:red;
+}
+.nav-sidebar-menu{
+	display: none;
+	list-style: none;
+	padding: 0px;
+
+}
+.nav-sidebar-menu li{
+	display: block;
+}
+.nav-sidebar-menu li a{	
+	padding: 10px 20px 10px 20px;
+	display: block;
+}
+.nav-sidebar-li > ul.nav-sidebar-menu{
+	display:block;
+}
+.nav-sidebar-li > a > .fa-angle-left{
+	transform:rotate(-90deg);
+}
+.pull-right{
+	line-height: 15px;
+}
+

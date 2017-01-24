@@ -1,0 +1,110 @@
+
+<?php echo $this->getContent() ?>
+
+<div align="right">
+    <?php echo $this->tag->linkTo(array("user/new", "Create user")) ?>
+</div>
+
+<?php echo $this->tag->form(array("user/search", "autocomplete" => "off")) ?>
+
+<div align="center">
+    <h1>Search user</h1>
+</div>
+
+<table>
+    <tr>
+        <td align="right">
+            <label for="iduser">Iduser</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("iduser", "type" => "number")) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="email">Email</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("email", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="username">Username</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("username", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="password">Password</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("password", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="type">Type</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("type", "type" => "number")) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="status">Status</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("status", "type" => "number")) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="password_reset_digest">Password Of Reset Of Digest</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("password_reset_digest", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="created_by">Created Of By</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("created_by", "type" => "number")) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="updated_by">Updated Of By</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("updated_by", "type" => "number")) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="created_on">Created Of On</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("created_on", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="updated_on">Updated Of On</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("updated_on", "size" => 30)) ?>
+        </td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td><?php echo $this->tag->submitButton("Search") ?></td>
+    </tr>
+</table>
+
+</form>

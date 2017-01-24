@@ -1,0 +1,30 @@
+<div align="center">
+          <h1> User Info</h1>
+      </div>
+      <form>
+        <div class="form-group">       
+        <?php echo phalcon\Tag::hiddenField(array("user[iduser]","class"=>"form-control" )); ?>
+        </div>
+        <div class="form-group">
+        <label for="email" >Email</label>
+        <?php echo $this->tag->textField(array("email", "size" => 25 , 
+          "disabled" => 'disable',"class"=>"form-control", "placeholder"=>"Email")) ?>
+        </div>
+        <div class="form-group">
+        <label for="user[username]">User Name*</label>
+        <?php echo $this->tag->textField(array("user[username]", "size" => 25 , 
+          "class"=>"form-control", "placeholder"=>"User Name")) ?>
+        </div>
+        <div class="form-group">
+        <label for="user[password]">Password*</label>
+        <?php echo $this->tag->passwordField(array("user[password]", "size" => 25 , 
+        "class"=>"form-control", "placeholder"=>"Password")) ?>
+        </div>
+        <div class="form-group">
+        <label for="type">Type</label>
+        <?php echo $this->tag->textField(array("type","disabled" => 'disable',"class"=>"form-control")) ?>
+        </div>
+        <div class="form-group" >
+        <label for="status" >Status</label>
+        <?php echo $this->tag->textField(array("status","disabled" => 'disable',"class"=>"form-control")) ?>  
+        </div>

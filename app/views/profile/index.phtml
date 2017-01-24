@@ -1,0 +1,154 @@
+<?php $this->assets->outputCss('headercss') ?>
+<?php $this->assets->outputCss('mainpagecss') ?>
+<div class="container-fluid">
+  <div class="row">       
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <div class="col-md-4">                   
+      </div>
+      <div class="col-md-4">     
+      <?php $this->flash->output(); ?> 
+      <?php echo $this->tag->form("profile/save") ?>
+        <!-- update username and password form -->
+        <?php echo $this->view->partial('profile/editUser'); ?> 
+        <!-- profile update form -->
+        <div>
+          &nbsp;
+        </div>
+        <div align="center">
+          <h1>Edit Profile</h1>
+        </div>
+        <form>
+          <div class="form-group">
+          <?php echo phalcon\Tag::hiddenField(array("user_meta[iduser]","class"=>"form-control" )); ?>
+          </div>
+          <div class="form-group">
+          <?php echo phalcon\Tag::hiddenField(array("user_meta[iduser_meta]","class"=>"form-control" )); ?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[first_name]" >First Name*</label>
+          <?php echo $this->tag->textField(array("user_meta[first_name]","size" => 25 , 
+          "required"=>'required',"class"=>"form-control","placeholder"=>"First Name"))?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[last_name]">Last Name*</label>
+          <?php echo $this->tag->textField(array("user_meta[last_name]", "size" => 25 , 
+          "required"=>'required',"class"=>"form-control","placeholder"=>"Last Name")) ?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[designation]">Designation*</label>
+          <?php echo $this->tag->textField(array("user_meta[designation]","size" =>25, 
+          "required"=>'required',"class"=>"form-control", "placeholder"=>"Designation"))?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[dob]">DOB*</label>
+          <?php echo $this->tag->textField(array("user_meta[dob]", "size" => 25 , 
+          "required" => 'required',"class"=>"form-control", "placeholder"=>"DOB","data-format"=>"yyyy/mm/dd","id"=>"datepicker")) ?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[phone]">Phone*</label>
+          <?php echo $this->tag->textField(array("user_meta[phone]", "size" => 25 , 
+          "required" => 'required',"class"=>"form-control", "placeholder"=>"Phone")) ?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[alt_phone]">Alternate Phone</label>
+           <?php echo $this->tag->textField(array("user_meta[alt_phone]","size" =>25, 
+          "class"=>"form-control", "placeholder"=>"Alternate Phone")) ?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[landline]">Landline Phone</label>
+          <?php echo $this->tag->textField(array("user_meta[landline]", "size" => 25 , 
+          "class"=>"form-control", "placeholder"=>"Landline Number")) ?>
+           </div>
+          <div class="form-group">
+          <label for="user_meta[email]" >Email*</label>
+          <?php echo $this->tag->textField(array("user_meta[email]", "size" => 25 , 
+          "required" => 'required',"class"=>"form-control", "placeholder"=>"Email")) ?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[alt_email]" >Alternate Email</label>
+          <?php echo $this->tag->textField(array("user_meta[alt_email]", "size" => 25 , 
+         "class"=>"form-control", "placeholder"=>"Alternate  Email")) ?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[current_address]">Current Address*</label>
+          <?php echo $this->tag->textArea(array("user_meta[current_address]", "cols" => 25, "rows" => 4,"required" => 'required',"class"=>"form-control", "placeholder"=>"Current Address")) ?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[permanent_address]">Parmanent Address*</label>
+          <?php echo $this->tag->textArea(array("user_meta[permanent_address]", "cols" => 25, "rows" => 4, "required" => 'required',"class"=>"form-control", "placeholder"=>"Parmanent Address")) ?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[communication_address]">Communication Address*</label>
+          <?php echo $this->tag->textArea(array("user_meta[communication_address]", "cols" => 25, "rows" => 4, "required" => 'required',"class"=>"form-control", "placeholder"=>"Communication Address")) ?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[landlord_detail]">LandLord Detail</label>
+          <?php echo $this->tag->textField(array("user_meta[landlord_detail]", "size" => 25 ,"class"=>"form-control", "placeholder"=>"LandLord Detail")) ?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[father_name]">Father Name*</label>
+          <?php echo $this->tag->textField(array("user_meta[father_name]","size" =>25, 
+          "class"=>"form-control", "required" => 'required',"placeholder"=>"Father Name")) ?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[father_phone]">Father Phone*</label>
+          <?php echo $this->tag->textField(array("user_meta[father_phone]","size" =>25, 
+          "class"=>"form-control","required" => 'required',"placeholder"=>"Father Phone Number")) ?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[mother_name]">Mother Name*</label>
+          <?php echo $this->tag->textField(array("user_meta[mother_name]","size" =>25, 
+          "class"=>"form-control","required" => 'required', "placeholder"=>"Mother Name")) ?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[mother_phone]">Mother Phone</label>
+          <?php echo $this->tag->textField(array("user_meta[mother_phone]","size" =>25, 
+          "class"=>"form-control","placeholder"=>"Mother Phone Number")) ?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[pan]">Pan</label>
+          <?php echo $this->tag->textField(array("user_meta[pan]", "size" => 25 , 
+          "class"=>"form-control", "placeholder"=>"Pan")) ?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[bank]">Bank*</label>
+          <?php echo $this->tag->textField(array("user_meta[bank]", "size" => 25 , 
+            "required" => 'required', "class"=>"form-control", "placeholder"=>"Bank"))?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[branch]" >Branch*</label>
+          <?php echo $this->tag->textField(array("user_meta[branch]", "size" => 25 , 
+          "required" => 'required', "class"=>"form-control", "placeholder"=>"Branch Name")) ?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[account_number]" >Account Number*</label>
+          <?php echo $this->tag->textField(array("user_meta[account_number]","size"=> 25,"required" => 'required', "class"=>"form-control", "placeholder"=>"Account Number")) ?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[micr_code]" >MICR Code*</label>
+          <?php echo $this->tag->textField(array("user_meta[micr_code]","size" =>25 , 
+          "required" =>'required',"class"=>"form-control","placeholder"=>"MICR Code"))?>
+          </div>
+          <div class="form-group">
+          <label for="user_meta[ifsc]" >IFSC Code*</label>
+          <?php echo $this->tag->textField(array("user_meta[ifsc]", "size" => 25 , 
+          "required"=>'required',"class"=>"form-control","placeholder"=>"IFSC Code")) ?>
+          </div>
+          <div id="submit_btn">
+               <button type="submit" class="btn btn-default">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<?php $this->assets->outputJs('footerjs') ?>
+<?php $this->assets->outputJs('mainpagejs') ?>
+<script type="text/javascript">
+// When the document is ready
+  jQuery(document).ready(function($) {   
+    $('#from').datepicker({
+        format: "yyyy/mm/dd"      
+    });  
+  });
+</script>       

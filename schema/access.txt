@@ -1,0 +1,86 @@
+Admin:
+-----
+- Dashboard
+
+- Users
+-- Add/Update/Delete Users
+-- Add/Update/Delete User Documents
+-- Add/Update/Delete User Education
+-- Add/Update/Delete User Experience
+
+- Attendance
+-- View/Edit/Delete Attendance
+
+- Leave Records
+-- Add/Update/Delete Official Leaves
+-- View/Edit/Delete Leave Records
+
+- Reports
+-- Daily Attendance 
+-- Monthly Attendance
+-- Leave Records
+
+- Settings
+- Index
+- About
+- Errors
+- Contact
+- Session
+
+Manager:
+-------
+- Dashboard
+
+- Users
+-- Add/Update/Delete Users
+-- Add/Update/Delete User Documents
+-- Add/Update/Delete User Education
+-- Add/Update/Delete User Experience
+
+- Attendance
+-- View/Edit/Delete Attendance
+
+- Leave Records
+-- Add/Update/Delete Official Leaves
+-- View/Edit/Delete Leave Records
+
+- Reports
+-- Daily Attendance 
+-- Monthly Attendance
+-- Leave Records
+
+- Update Profile
+- Index
+- About
+- Errors
+- Contact
+- Session
+
+
+Users:
+------
+- Dashboard
+
+- Attendance
+-- Start Attendance
+-- Stop Attendance
+-- View Attendance
+
+- Leave Records
+-- View Official Leaves
+-- View Leave Records
+
+- Update Profile
+- Index
+- About
+- Errors
+- Contact
+- Session
+
+Guests:
+------
+- Index
+- About
+- Errors
+- Contact
+- Session

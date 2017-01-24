@@ -1,0 +1,40 @@
+<?php $this->assets->outputCss('headercss') ?>
+<?php $this->assets->outputCss('mainpagecss') ?>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <div class="col-md-4">           
+      <?php echo Phalcon\Tag::linkTo(array("systemmeta/index", "Back", "class"=>
+       'btn btn-primary btn-large btn-success')) ?>                  
+      </div>
+      <div class="col-md-4">
+        <?php $this->flash->output(); ?>
+        <?php echo $this->tag->form("systemmeta/save") ?>
+        <div align="center">
+          <h1>Edit System Meta</h1>
+        </div>
+        <form>
+          <div class="form-group">           
+          <?php echo phalcon\Tag::hiddenField(array("idsystem_meta","class"=>"form-control" )); ?>
+          </div>
+          <div class="form-group">
+          <label for="meta_name" >Meta Name*</label>
+          <?php echo $this->tag->textField(array("meta_name", "size" => 25 , 
+          "required" => 'required',"class"=>"form-control", "placeholder"=>"Meta Name")) ?>
+          </div>
+          <div class="form-group">
+          <label for="meta_value" >Meta Value*</label>
+          <?php echo $this->tag->textField(array("meta_value", "size" => 25 , 
+          "required" => 'required',"class"=>"form-control", "placeholder"=>"Meta Value")) ?>
+          </div>            
+          <div id="submit_btn">
+          <button type="submit" class="btn btn-default">Submit</button>
+          </div>
+        </form>          
+        </form>
+     </div>
+    </div>
+  </div>
+</div>
+<?php $this->assets->outputJs('footerjs') ?>
+<?php $this->assets->outputJs('mainpagejs') ?>

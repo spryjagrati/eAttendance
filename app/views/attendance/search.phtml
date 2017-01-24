@@ -1,0 +1,64 @@
+<?php use Phalcon\Tag; ?>
+
+<?php echo $this->getContent(); ?>
+
+<table width="100%">
+    <tr>
+        <td align="left">
+            <?php echo $this->tag->linkTo(array("attendance/index", "Go Back")); ?>
+        </td>
+        <td align="right">
+            <?php echo $this->tag->linkTo(array("attendance/new", "Create ")); ?>
+        </td>
+    </tr>
+</table>
+
+<table class="browse" align="center">
+    <thead>
+        <tr>
+            <th>Idattendance</th>
+            <th>Iduser</th>
+            <th>Cdate</th>
+            <th>In Of Time</th>
+            <th>Out Of Time</th>
+            <th>Created Of On</th>
+            <th>Updated Of On</th>
+            <th>Type</th>
+            <th>Remark</th>
+            <th>Idapplication</th>
+         </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($page->items as $attendance) { ?>
+        <tr>
+            <td><?php echo $attendance->idattendance ?></td>
+            <td><?php echo $attendance->iduser ?></td>
+            <td><?php echo $attendance->cdate ?></td>
+            <td><?php echo $attendance->in_time ?></td>
+            <td><?php echo $attendance->out_time ?></td>
+            <td><?php echo $attendance->created_on ?></td>
+            <td><?php echo $attendance->updated_on ?></td>
+            <td><?php echo $attendance->type ?></td>
+            <td><?php echo $attendance->remark ?></td>
+            <td><?php echo $attendance->idapplication ?></td>
+            <td><?php echo $this->tag->linkTo(array("attendance/edit/" . $attendance->idattendance, "Edit")); ?></td>
+            <td><?php echo $this->tag->linkTo(array("attendance/delete/" . $attendance->idattendance, "Delete")); ?></td>
+        </tr>
+    <?php } ?>
+    </tbody>
+    <tbody>
+        <tr>
+            <td colspan="2" align="right">
+                <table align="center">
+                    <tr>
+                        <td><?php echo $this->tag->linkTo("attendance/search", "First") ?></td>
+                        <td><?php echo $this->tag->linkTo("attendance/search?page=" . $page->before, "Previous") ?></td>
+                        <td><?php echo $this->tag->linkTo("attendance/search?page=" . $page->next, "Next") ?></td>
+                        <td><?php echo $this->tag->linkTo("attendance/search?page=" . $page->last, "Last") ?></td>
+                        <td><?php echo $page->current, "/", $page->total_pages ?></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>

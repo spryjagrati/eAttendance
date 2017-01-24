@@ -1,0 +1,249 @@
+
+<?php echo $this->getContent(); ?>
+
+<?php echo $this->tag->form("user_meta/save") ?>
+
+<table width="100%">
+    <tr>
+        <td align="left"><?php echo $this->tag->linkTo(array("user_meta", "Back")) ?></td>
+        <td align="right"><?php echo $this->tag->submitButton("Save") ?></td>
+    </tr>
+</table>
+
+<div align="center">
+    <h1>Edit user_meta</h1>
+</div>
+
+<table>
+    <tr>
+        <td align="right">
+            <label for="iduser">Iduser</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("iduser", "type" => "number")) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="first_name">First Of Name</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("first_name", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="last_name">Last Of Name</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("last_name", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="designation">Designation</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("designation", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="dob">Dob</label>
+        </td>
+        <td align="left">
+                <?php echo $this->tag->textField(array("dob", "type" => "date")) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="phone">Phone</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("phone", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="alt_phone">Alt Of Phone</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("alt_phone", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="landline">Landline</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("landline", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="email">Email</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("email", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="alt_email">Alt Of Email</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("alt_email", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="current_address">Current Of Address</label>
+        </td>
+        <td align="left">
+                <?php echo $this->tag->textArea(array("current_address", "cols" => 30, "rows" => 4)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="permanent_address">Permanent Of Address</label>
+        </td>
+        <td align="left">
+                <?php echo $this->tag->textArea(array("permanent_address", "cols" => 30, "rows" => 4)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="communication_address">Communication Of Address</label>
+        </td>
+        <td align="left">
+                <?php echo $this->tag->textArea(array("communication_address", "cols" => 30, "rows" => 4)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="landlord_detail">Landlord Of Detail</label>
+        </td>
+        <td align="left">
+                <?php echo $this->tag->textArea(array("landlord_detail", "cols" => 30, "rows" => 4)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="father_name">Father Of Name</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("father_name", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="father_phone">Father Of Phone</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("father_phone", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="mother_name">Mother Of Name</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("mother_name", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="mother_phone">Mother Of Phone</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("mother_phone", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="pan">Pan</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("pan", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="bank">Bank</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("bank", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="branch">Branch</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("branch", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="account_number">Account Of Number</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("account_number", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="micr_code">Micr Of Code</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("micr_code", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="ifsc">Ifsc</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("ifsc", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="created_by">Created Of By</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("created_by", "type" => "number")) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="updated_by">Updated Of By</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("updated_by", "type" => "number")) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="created_on">Created Of On</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("created_on", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="updated_on">Updated Of On</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("updated_on", "size" => 30)) ?>
+        </td>
+    </tr>
+
+    <tr>
+        <td><?php echo $this->tag->hiddenField("id") ?></td>
+        <td><?php echo $this->tag->submitButton("Save") ?></td>
+    </tr>
+</table>
+
+</form>

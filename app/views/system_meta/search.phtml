@@ -1,0 +1,50 @@
+<?php use Phalcon\Tag; ?>
+
+<?php echo $this->getContent(); ?>
+
+<table width="100%">
+    <tr>
+        <td align="left">
+            <?php echo $this->tag->linkTo(array("system_meta/index", "Go Back")); ?>
+        </td>
+        <td align="right">
+            <?php echo $this->tag->linkTo(array("system_meta/new", "Create ")); ?>
+        </td>
+    </tr>
+</table>
+
+<table class="browse" align="center">
+    <thead>
+        <tr>
+            <th>Idsystem Of Meta</th>
+            <th>Meta Of Name</th>
+            <th>Meta Of Value</th>
+         </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($page->items as $system_meta) { ?>
+        <tr>
+            <td><?php echo $system_meta->idsystem_meta ?></td>
+            <td><?php echo $system_meta->meta_name ?></td>
+            <td><?php echo $system_meta->meta_value ?></td>
+            <td><?php echo $this->tag->linkTo(array("system_meta/edit/" . $system_meta->idsystem_meta, "Edit")); ?></td>
+            <td><?php echo $this->tag->linkTo(array("system_meta/delete/" . $system_meta->idsystem_meta, "Delete")); ?></td>
+        </tr>
+    <?php } ?>
+    </tbody>
+    <tbody>
+        <tr>
+            <td colspan="2" align="right">
+                <table align="center">
+                    <tr>
+                        <td><?php echo $this->tag->linkTo("system_meta/search", "First") ?></td>
+                        <td><?php echo $this->tag->linkTo("system_meta/search?page=" . $page->before, "Previous") ?></td>
+                        <td><?php echo $this->tag->linkTo("system_meta/search?page=" . $page->next, "Next") ?></td>
+                        <td><?php echo $this->tag->linkTo("system_meta/search?page=" . $page->last, "Last") ?></td>
+                        <td><?php echo $page->current, "/", $page->total_pages ?></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>

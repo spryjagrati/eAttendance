@@ -1,0 +1,48 @@
+<div class="col-md-12">
+            <?php if(!empty($experience[0])){ ?>
+            <div>
+            <table class="browse" align="center" width="100%" border="1px solid black">
+              <thead>
+                <tr>
+                <td align="center"><b>Title</b></td>
+                <td align="center"><b>Description</b></td>
+                <td align="center"><b>From Date</b></td>
+                <td align="center"><b>To Date</b></td>
+                <td align="center"><b>Company</b></td>
+                <td align="center"><b>Company Address</b></td>
+                <td align="center"><b>Company Ctc</b></td>
+                </tr>
+              </thead>
+                <tbody>
+                <?php foreach($experience as $exp){ ?>
+                <div>
+                <tr>                             
+                <td align="center">
+                  <?php echo $exp->title ?>
+                </td>
+                <td align="center">
+                  <?php echo $exp->description ?>
+                </td>
+                <td align="center">
+                  <?php echo $exp->from_date ?>
+                </td>
+                <td align="center">
+                  <?php echo $exp->to_date ?>
+                </td>
+                <td align="center">
+                  <?php echo $exp->company ?>
+                </td>
+                <td align="center">
+                  <?php echo $exp->company_address ?>
+                </td>
+                <td align="center">
+                  <?php echo $exp->company_ctc ?>
+                </td>
+                </tr>
+              </div>        
+              <?php } ?>
+            </tbody>
+          </table>
+          </div> 
+        <?php } ?>
+        </div> 

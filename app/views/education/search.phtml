@@ -1,0 +1,70 @@
+<?php use Phalcon\Tag; ?>
+
+<?php echo $this->getContent(); ?>
+
+<table width="100%">
+    <tr>
+        <td align="left">
+            <?php echo $this->tag->linkTo(array("education/index", "Go Back")); ?>
+        </td>
+        <td align="right">
+            <?php echo $this->tag->linkTo(array("education/new", "Create ")); ?>
+        </td>
+    </tr>
+</table>
+
+<table class="browse" align="center">
+    <thead>
+        <tr>
+            <th>Ideducation</th>
+            <th>Iduser</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>From Of Date</th>
+            <th>To Of Date</th>
+            <th>College</th>
+            <th>Grade</th>
+            <th>Stream</th>
+            <th>Created Of By</th>
+            <th>Updated Of By</th>
+            <th>Created Of On</th>
+            <th>Updated Of On</th>
+         </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($page->items as $education) { ?>
+        <tr>
+            <td><?php echo $education->ideducation ?></td>
+            <td><?php echo $education->iduser ?></td>
+            <td><?php echo $education->title ?></td>
+            <td><?php echo $education->description ?></td>
+            <td><?php echo $education->from_date ?></td>
+            <td><?php echo $education->to_date ?></td>
+            <td><?php echo $education->college ?></td>
+            <td><?php echo $education->grade ?></td>
+            <td><?php echo $education->stream ?></td>
+            <td><?php echo $education->created_by ?></td>
+            <td><?php echo $education->updated_by ?></td>
+            <td><?php echo $education->created_on ?></td>
+            <td><?php echo $education->updated_on ?></td>
+            <td><?php echo $this->tag->linkTo(array("education/edit/" . $education->ideducation, "Edit")); ?></td>
+            <td><?php echo $this->tag->linkTo(array("education/delete/" . $education->ideducation, "Delete")); ?></td>
+        </tr>
+    <?php } ?>
+    </tbody>
+    <tbody>
+        <tr>
+            <td colspan="2" align="right">
+                <table align="center">
+                    <tr>
+                        <td><?php echo $this->tag->linkTo("education/search", "First") ?></td>
+                        <td><?php echo $this->tag->linkTo("education/search?page=" . $page->before, "Previous") ?></td>
+                        <td><?php echo $this->tag->linkTo("education/search?page=" . $page->next, "Next") ?></td>
+                        <td><?php echo $this->tag->linkTo("education/search?page=" . $page->last, "Last") ?></td>
+                        <td><?php echo $page->current, "/", $page->total_pages ?></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
